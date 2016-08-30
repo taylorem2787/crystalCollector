@@ -1,0 +1,52 @@
+* {
+    position: relative;
+    box-sizing: border-box;
+}
+
+body {
+	color: green;
+	background-image: url("../images/background1.jpg")!important;
+	/*background-repeat: no-repeat;*/
+	background-size: cover;
+    height: 100%;
+    width: 100%;
+    padding: 0px;
+    margin: auto 0;
+    font-size: 18px;
+    line-height: 34px:;
+    text-transform: uppercase;
+    text-shadow: 20px;
+    font-family: 'Arima Madurai', cursive;
+}
+
+.container {
+	width: 100%;
+	max-width: 970px;
+	margin-top: 5%;
+	text-align: center;
+}
+
+.logo {
+	width: 90%;
+}
+
+.image {
+	margin: 2%;
+}
+
+#crystals {
+	display: inline-block;
+	margin: 2%;
+	width: 100%;
+	/* width: 200px;
+     height: 200px;*/
+}
+
+.crystalImage {
+	margin: 2%;
+}
+
+  .crystalImage {
+      width: 100px;
+      height: 100px;
+    }
