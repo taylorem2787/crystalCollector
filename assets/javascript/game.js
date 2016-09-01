@@ -1,94 +1,150 @@
+$(document).ready(function() {
 // GLOBAL VARIABLES
-//--------------------------------------------------------------
+//================================================================
+randomNumber = Math.floor((Math.random() * 102) + 19);
+var red = Math.floor(Math.random() * 12) + 1; 
+var multi = Math.floor(Math.random() * 12) + 1; 
+var green = Math.floor(Math.random() * 12) + 1; 
+var blue = Math.floor(Math.random() * 12) + 1; 
+var yourNumber = 0;
+//game counters
+var wins = 0;
+var losses = 0;
+
+gameOver = false;
 
 
-  $( document ).ready(function() {
-  	
-  	var numberToGuess = Math.round(Math.random() * 120) + 18;  
-  	crystals = ['assets/images/ruby.png', 'assets/images/multi.png', 'assets/images/emerald.png', 'assets/images/blue.png'];
-    var counter = 0;
-    // Game Counters
-    winCount = 0;
-    lossCount = 0;
-   
-   //	$('#number').text(numberToGuess);
-  
-    newCrystals();
-	startGame();
-	$('#number').text(numberToGuess);
+// FUNCTIONS
+//================================================================
 
-	function newCrystals () {
-		var numbers = []
-			while(numbers.length < 4){
-			  var randomnumber = Math.ceil(Math.random()*12)
-			  var found = false;
-			  for (var i=0; i< numbers.length; i++){
-				if (numbers[i] == randomnumber){
-					found = true; break
-				}
-			  }
-			  if(!found)numbers[numbers.length]=randomnumber;
-			}
-		console.log(numbers);
-   
+  function scoreSum(sumTotal) {
+    //yourNumber+=sumTotal
+    yourNumber = yourNumber + sumTotal;
+    console.log("", yourNumber);
+  }
 
-    for (var i=0; i< numbers.length; i++){
+  function scoreCount() {
+    //console.log("Wins: " + wins + " | Losses: " + losses);
 
-      var imageCrystal = $('<img>');
-      
-      imageCrystal.attr('data-num', numbers[i]);
-
-      imageCrystal.attr('src',  crystals[i]);
-
-      imageCrystal.attr('alt', 'crystals');
-
-      imageCrystal.addClass('crystalImage');
-
-      $('#crystals').append(imageCrystal);
+    if (yourNumber === randomNumber){
+      wins++;
+      $(".winCounter").html("Wins: " +wins);
+      $('#gameStatus').text('You won!')
+      gameOver = true;
     }
 
- }  
+    else if (yourNumber > randomNumber){
+      losses++;
+      $(".lossCounter").html("Losses: " +losses);   
+      $('.gameStatus').text('You Lost!')
+      gameOver = true;
+    }
 
- 	function startGame() {
-    $('.crystalImage').on('click', function(){
-      counter = counter + parseInt($(this).data('num'));
-      
-      $('#yourNumber').text(counter);
+    restartGame();
 
-      if (counter == numberToGuess){
-      	setTimeout(function(){ 
-      	$('#gameCount').text('You won!');
-      	winCount++;
-        //alert('You won!!!!');
-     	document.getElementById("winCounter").innerHTML = winCount;
-     	reset ();
-     	newCrystals ();
-      	startGame ();
-		}, 1000);
-      }
+  } //end scoreCount
 
+  var redCrystal = $("crystalOne");
+  redCrystal.attr("data-let", red);
+  console.log("Gem One Value", red);
 
-      else if( counter > numberToGuess){
-      	setTimeout(function(){ 
-      	$('#gameCount').text('You Lost!');
-      	lossCount++;
-        //alert('You lost!');
-       	document.getElementById("lossCounter").innerHTML = lossCount;
-        reset();
-        newCrystals();
-        startGame ();
-    	}, 1000);
-      }     
-      
+  var multiCrystal = $("crystalTwo");
+  multiCrystal.attr("data-let", multi);
+  console.log("Gem Two Value", multi);
 
-    });
-	}
-  
+  var greenCrystal = $("crystalThree");
+  greenCrystal.attr("data-let", green);
+  console.log("Gem Three Value", green);
+
+  var blueCrystal = $("crystalFour");
+  blueCrystal.attr("data-let", blue);
+  console.log("Gem Four Value", blue);
+
+    
+
+// CRYSTAL ON CLICK FUNCTION
+//================================================================
+  $(".crystalOne").on("click", function(){
+  $(".crystalOne").addClass("animated bounce");
+       setTimeout(function () {
+       $(".crystalOne").delay(1000).removeClass("animated bounce");
+    }, 1000);
+    scoreSum(red);
+    console.log("crystalOne On-Click", red);
+    $(".yourNumber").html(yourNumber);
+    scoreCount();
   });
+
+  $(".crystalTwo").on("click", function(){
+  $(".crystalTwo").addClass("animated bounce");
+       setTimeout(function () {
+       $(".crystalTwo").delay(1000).removeClass("animated bounce");
+    }, 1000);
+    scoreSum(multi);
+    console.log("crystalTwo On-Click", multi);
+    $(".yourNumber").html(yourNumber);
+    scoreCount();
+  });
+
+  $(".crystalThree").on("click", function(){
+  $(".crystalThree").addClass("animated bounce");
+       setTimeout(function () {
+       $(".crystalThree").delay(1000).removeClass("animated bounce");
+    }, 1000);
+    scoreSum(green);
+    console.log("crystalThree On-Click", green);
+    $(".yourNumber").html(yourNumber);
+    scoreCount();
+  });
+
+  $(".crystalFour").on("click", function(){
+  $(".crystalFour").addClass("animated bounce");
+       setTimeout(function () {
+       $(".crystalFour").delay(1000).removeClass("animated bounce");
+    }, 1000);
+    scoreSum(blue);
+    console.log("crystalFour On-Click", blue);
+    $(".yourNumber").html(yourNumber);
+    scoreCount();
+  });
+
+  function targetNumber(){
+
+    $(".targetNumber").html(randomNumber);
+  console.log("Random Number: ", randomNumber);
+  } 
+
+  targetNumber();
+
+  function restartGame(){
+
+    if(gameOver === true){
+
+      randomNumber = Math.floor((Math.random() * 102) + 19);
+      red = Math.floor((Math.random() * 12) + 1);
+      multi = Math.floor((Math.random() * 12) + 1);
+      green = Math.floor((Math.random() * 12) + 1); 
+      blue = Math.floor((Math.random() * 12) + 1);
+      yourNumber = 0; 
+      gameOver = false;
+
+
+      targetNumber();
+      $(".yourNumber").html(yourNumber);
+
+    }
+
+  }
+
+});
+      
+
+// AUDIO
+//================================================================
 
     $(document).ready(function() {
         var obj = document.createElement("audio");
-        obj.src="chime.wav";
+        obj.src="assets/sounds/chime.wav";
         obj.autoPlay=false;
         obj.preLoad=true;       
  
@@ -98,19 +154,17 @@
  
     }); 
 
-   // function reset () {
-
-   // 	if (gameOver === true) {
-   // 		numberToGuess = Math.round((Math.random() * 120) + 18); 
-   // 		randomnumber = Math.ceil(Math.random()*12);
-   // 		numbers = [];
-   // 		gameOver = false;
-
-
-   // 	}
-
-   //  function newGame () {
-   //  var numberToGuess = Math.round(Math.random() * 120) + 18;  
+    $(document).ready(function() {
+        var obj = document.createElement("audio");
+        obj.src="assets/sounds/beep.mp3";
+        obj.autoPlay=false;
+        obj.preLoad=true;       
+ 
+        $(".beep").event(function() {
+            obj.play();
+        });
+ 
+    }); 
     
     
 
