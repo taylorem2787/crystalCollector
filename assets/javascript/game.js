@@ -1,7 +1,7 @@
 $(document).ready(function() {
 // GLOBAL VARIABLES
 //================================================================
-randomNumber = Math.floor((Math.random() * 102) + 19);
+randomNumber = Math.floor((Math.random() * 120) + 19);
 var red = Math.floor(Math.random() * 12) + 1; 
 var multi = Math.floor(Math.random() * 12) + 1; 
 var green = Math.floor(Math.random() * 12) + 1; 
