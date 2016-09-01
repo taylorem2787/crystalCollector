@@ -12,7 +12,7 @@ var wins = 0;
 var losses = 0;
 
 gameOver = false;
-
+//var crystalCount = (red, || blue, || multi, || ruby);
 
 // FUNCTIONS
 //================================================================
@@ -46,24 +46,27 @@ gameOver = false;
 
   var redCrystal = $("crystalOne");
   redCrystal.attr("data-let", red);
-  console.log("Gem One Value", red);
+  console.log("crystalOne Value", red);
 
   var multiCrystal = $("crystalTwo");
   multiCrystal.attr("data-let", multi);
-  console.log("Gem Two Value", multi);
+  console.log("crystalTwo Value", multi);
 
   var greenCrystal = $("crystalThree");
   greenCrystal.attr("data-let", green);
-  console.log("Gem Three Value", green);
+  console.log("crystalThree Value", green);
 
   var blueCrystal = $("crystalFour");
   blueCrystal.attr("data-let", blue);
-  console.log("Gem Four Value", blue);
+  console.log("crystalFour Value", blue);
 
     
 
 // CRYSTAL ON CLICK FUNCTION
 //================================================================
+ 
+
+
   $(".crystalOne").on("click", function(){
   $(".crystalOne").addClass("animated bounce");
        setTimeout(function () {
@@ -74,6 +77,7 @@ gameOver = false;
     $(".yourNumber").html(yourNumber);
     scoreCount();
   });
+  
 
   $(".crystalTwo").on("click", function(){
   $(".crystalTwo").addClass("animated bounce");
