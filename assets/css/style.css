@@ -4,10 +4,10 @@
 }
 
 body {
-	color: lightsteelblue !important;
-	background-image: url("../images/background1.jpg")!important;
-	/*background-repeat: no-repeat;*/
-	background-size: cover;
+  color: lightsteelblue !important;
+  background-image: url("../images/background1.jpg")!important;
+  /*background-repeat: no-repeat;*/
+  background-size: cover;
   height: 100%;
   width: 100%;
   padding: 0px;
@@ -17,74 +17,56 @@ body {
   font-family: none;
   font-style: none;
 }
-
+h1 {
+  line-height: 70px;
+  padding: 2%;
+  font-size: 95px;
+}
 h5 {
-  display: inline;
   font-size: 20px !important;
   padding: 40px 0px 40px 20px;
   margin-left: 3%;  
+  display: inline;
 }
-
 .container {
   width: 100%;
   max-width: 980px;
+  margin: auto;
   margin-top: 3%;
   text-align: center;
 }
-
 .panel {
   background: rgba(105, 105, 105, .7) !important;
   background-color: rgba(0,0,0,.4) !important; 
   border-radius: 10px;
   padding: 5px;
   color: snow !important;
-
 }
-
-#crystals {
-	/*display: inline-block;*/
-	margin: 2%;
-	width: 50%;
-}
-
-#panel1, #panel2, #panel3 {
-  width: 45%;
-  display: inline-block;
-}
-
-#panel1, #panel2 {
-  width: 45%;
-}
-
-#panel1 {
-  float: left;
-  margin-right: 10%;
-  padding-bottom: 5%;
-}
-
-/*#panel2 {
-  padding-bottom: 5%;
-}*/
-
-#panel3 {
-  width: 100%;
-}
-
 .panel-title {
   display: inline !important;
   width: 100%;
   text-align: center;
   margin: auto;
-
 }
-
-h1 {
-
-  line-height: 70px;
-  padding: 2%;
-  font-size: 95px;
+#panel1, #panel2, #panel3 {
+  width: 45%;
+  display: inline-block;
 }
-
+#panel1, #panel2 {
+  width: 45%;
+}
+#panel1 {
+  float: left;
+  margin-right: 10%;
+  padding-bottom: 5%;
+}
+#panel3 {
+  width: 100%;
+}
+/*#panel2 {
+  padding-bottom: 5%;
+}*/
+#crystals {margin: 2%; width: 50%;}
 .crystalOne {width: 130px; height: 140px; margin-right: 15px;}
 .crystalThree {width: 150px; height: 140px;}
 .crystalTwo {width: 150px; height: 150px;}
