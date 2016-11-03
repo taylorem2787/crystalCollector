@@ -11,8 +11,8 @@ var yourNumber = 0;
 var wins = 0;
 var losses = 0;
 
+var name = ['', '', '', ''];
 gameOver = false;
-//var crystalCount = (red, || blue, || multi, || ruby);
 
 // FUNCTIONS
 //================================================================
